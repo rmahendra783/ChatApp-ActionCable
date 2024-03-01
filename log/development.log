@@ -1,0 +1,2149 @@
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20240301053948)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240301053948"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-03-01 05:39:51.242596"], ["updated_at", "2024-03-01 05:39:51.242596"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRooms (20240301054101)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRooms (20240301054101)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "is_private" boolean DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240301054101"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "music"], ["LIMIT", 1]]
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "music"], ["is_private", 0], ["created_at", "2024-03-01 06:11:16.851266"], ["updated_at", "2024-03-01 06:11:16.851266"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Drake"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Drake"], ["created_at", "2024-03-01 06:11:48.405367"], ["updated_at", "2024-03-01 06:11:48.405367"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Elon"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Elon"], ["created_at", "2024-03-01 06:11:54.074790"], ["updated_at", "2024-03-01 06:11:54.074790"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/products" for ::1 at 2024-03-01 11:42:17 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started GET "/products" for ::1 at 2024-03-01 11:42:22 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started GET "/" for ::1 at 2024-03-01 11:42:27 +0530
+Processing by RoomsController#index as HTML
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms | Allocations: 6127)
+
+
+Started GET "/signin" for ::1 at 2024-03-01 11:42:27 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1828)
+  Rendered layout layouts/application.html.erb (Duration: 124.6ms | Allocations: 85455)
+Completed 200 OK in 126ms (Views: 125.7ms | ActiveRecord: 0.0ms | Allocations: 86425)
+
+
+Started POST "/signin" for ::1 at 2024-03-01 11:44:12 +0530
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"username"=>"Drake"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Drake"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 16608)
+
+
+Started GET "/" for ::1 at 2024-03-01 11:44:12 +0530
+Processing by RoomsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of users/_user.html.erb [1 times] (Duration: 0.4ms | Allocations: 239)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.3ms | Allocations: 185)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 15664)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 17067)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 19296)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Travel"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Travel"], ["created_at", "2024-03-01 06:28:39.082935"], ["updated_at", "2024-03-01 06:28:39.082935"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 568)
+[ActionCable] Broadcasting to users: "<turbo-stream action=\"append\" target=\"users\"><template><div> <a href=\"/users/3\">Travel</a> </div></template></turbo-stream>"
+Started GET "/" for ::1 at 2024-03-01 12:11:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 1180)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.3ms | Allocations: 179)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4737)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 37122)
+Completed 200 OK in 52ms (Views: 26.0ms | ActiveRecord: 0.8ms | Allocations: 76490)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:11:29 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:11:29 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/1" for ::1 at 2024-03-01 12:11:34 +0530
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for RoomsController):
+  
+actionpack (7.0.8.1) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.8.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8.1) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8.1) lib/rack/etag.rb:27:in `call'
+rack (2.2.8.1) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.8.1) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8.1) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8.1) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8.1) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8.1) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-03-01 12:12:25 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 139)
+  Rendered layouts/_new_room_form.html.erb (Duration: 8.0ms | Allocations: 1522)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.1ms | Allocations: 69)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 29.1ms | Allocations: 4600)
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | Allocations: 19799)
+Completed 200 OK in 65ms (Views: 59.4ms | ActiveRecord: 0.9ms | Allocations: 25126)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:12:25 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:12:25 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 12:12:27 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 1020)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.2ms | Allocations: 57)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2704)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4027)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 5063)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 12:12:27 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/cable" for ::1 at 2024-03-01 12:12:27 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:12:27 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 12:12:33 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 139)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.6ms | Allocations: 504)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.1ms | Allocations: 63)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2335)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 17444)
+Completed 200 OK in 15ms (Views: 9.2ms | ActiveRecord: 0.8ms | Allocations: 24037)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:12:33 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:12:33 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started POST "/rooms" for ::1 at 2024-03-01 12:13:24 +0530
+Processing by RoomsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"Sports"}, "commit"=>"Create Room"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Sports"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sports"], ["is_private", 0], ["created_at", "2024-03-01 06:43:24.728727"], ["updated_at", "2024-03-01 06:43:24.728727"]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  Rendered rooms/_room.html.erb (Duration: 0.6ms | Allocations: 207)
+[ActionCable] Broadcasting to rooms: "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/2\">Sports</a> </div></template></turbo-stream>"
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 7.0ms | Allocations: 6564)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/2\">Sports</a> </div></template></turbo-stream>" (via streamed from rooms)
+Started POST "/rooms" for ::1 at 2024-03-01 12:13:59 +0530
+Processing by RoomsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"Demo"}, "commit"=>"Create Room"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Demo"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Demo"], ["is_private", 0], ["created_at", "2024-03-01 06:43:59.083780"], ["updated_at", "2024-03-01 06:43:59.083780"]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  Rendered rooms/_room.html.erb (Duration: 0.2ms | Allocations: 56)
+[ActionCable] Broadcasting to rooms: "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/3\">Demo</a> </div></template></turbo-stream>"
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 10ms (ActiveRecord: 2.3ms | Allocations: 3274)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/3\">Demo</a> </div></template></turbo-stream>" (via streamed from rooms)
+Started GET "/" for ::1 at 2024-03-01 12:19:01 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 255)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.7ms | Allocations: 679)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [3 times] (Duration: 0.3ms | Allocations: 261)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3341)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 18679)
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 0.7ms | Allocations: 25555)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:19:01 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:19:01 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 12:19:02 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [3 times] (Duration: 0.4ms | Allocations: 139)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2224)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3547)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.4ms | Allocations: 4595)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 12:19:02 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/cable" for ::1 at 2024-03-01 12:19:02 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:19:02 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 12:19:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 1178)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [3 times] (Duration: 0.3ms | Allocations: 261)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 4904)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 37432)
+Completed 200 OK in 54ms (Views: 27.2ms | ActiveRecord: 0.8ms | Allocations: 76760)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:19:14 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:19:14 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started POST "/rooms" for ::1 at 2024-03-01 12:19:48 +0530
+Processing by RoomsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"Entertainment"}, "commit"=>"Create Room"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Entertainment"], ["is_private", 0], ["created_at", "2024-03-01 06:49:48.342972"], ["updated_at", "2024-03-01 06:49:48.342972"]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  Rendered rooms/_room.html.erb (Duration: 0.8ms | Allocations: 203)
+[ActionCable] Broadcasting to rooms: "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/4\">Entertainment</a> </div></template></turbo-stream>"
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 7.2ms | Allocations: 6603)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/4\">Entertainment</a> </div></template></turbo-stream>" (via streamed from rooms)
+Started GET "/" for ::1 at 2024-03-01 12:21:17 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 1.1ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.4ms | Allocations: 653)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [4 times] (Duration: 0.6ms | Allocations: 297)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3191)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 4815)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.4ms | Allocations: 6642)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 12:21:17 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/cable" for ::1 at 2024-03-01 12:21:17 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:21:17 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started POST "/rooms" for ::1 at 2024-03-01 12:21:27 +0530
+Processing by RoomsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"demo2"}, "commit"=>"Create Room"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "demo2"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "demo2"], ["is_private", 0], ["created_at", "2024-03-01 06:51:27.015980"], ["updated_at", "2024-03-01 06:51:27.015980"]]
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:11:in `create'
+  Rendered rooms/_room.html.erb (Duration: 1.3ms | Allocations: 198)
+[ActionCable] Broadcasting to rooms: "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/5\">demo2</a> </div></template></turbo-stream>"
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 7.6ms | Allocations: 4148)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"rooms\"><template><div> <a href=\"/rooms/5\">demo2</a> </div></template></turbo-stream>" (via streamed from rooms)
+Started GET "/rooms/5" for ::1 at 2024-03-01 12:21:28 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.5ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.4ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.7ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2328)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3643)
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 5704)
+
+
+Started GET "/rooms/1" for ::1 at 2024-03-01 12:21:30 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.7ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2328)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3652)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 5140)
+
+
+Started GET "/rooms/4" for ::1 at 2024-03-01 12:22:13 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 1.0ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.6ms | Allocations: 653)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.8ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3306)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4914)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 0.5ms | Allocations: 7172)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/3" for ::1 at 2024-03-01 12:22:15 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2329)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3644)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 0.5ms | Allocations: 5133)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:22:15 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 437)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2329)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3644)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 5126)
+
+
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:22:17 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.1ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.4ms | Allocations: 437)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2329)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3644)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 5117)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMessages (20240301065307)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "room_id" integer NOT NULL, "content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_a8db0fb63a"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_messages_on_room_id" ON "messages" ("room_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240301065307"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:28:13 +0530
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:28:23 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 1173)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 343)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 4992)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 11517)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.1ms | Allocations: 72486)
+
+
+  
+LoadError (cannot load such file -- sassc):
+  
+app/views/layouts/application.html.erb:9
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:29:08 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 139)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 498)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 227)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2524)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 5270)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.0ms | Allocations: 19456)
+
+
+  
+LoadError (cannot load such file -- sassc):
+  
+app/views/layouts/application.html.erb:9
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:29:10 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.6ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2330)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 5086)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms | Allocations: 6550)
+
+
+  
+LoadError (cannot load such file -- sassc):
+  
+app/views/layouts/application.html.erb:9
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:40:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.5ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 1174)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 343)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 4992)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 44944)
+Completed 200 OK in 59ms (Views: 38.8ms | ActiveRecord: 1.1ms | Allocations: 105356)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:40:37 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:40:37 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:40:47 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2331)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3734)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 5246)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/1" for ::1 at 2024-03-01 12:41:08 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2330)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3733)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 5242)
+
+
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:48:48 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3929)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4002)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.7ms | Allocations: 6410)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="row">
+  <div class="col-md-2">
+    <h5> Hi <%= @current_user.username %> </h5>
+    <h4> Users </h4>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+    <h4> Rooms </h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+      	<%= render @rooms %>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-10 bg-dark">
+    	The chat box stays here
+    	<div class="col-md-10 bg-dark text-light">
+		  <% if @single_room %>
+		    <h4 class="text-center"> <%= @single_room.name %> </h4>
+		    <%= turbo_stream_from @single_room %>
+			<div id="messages">
+			</div>
+			<%= render partial: 'layouts/new_message_form' >
+		  	<% end %>
+	    </div>
+    </div>
+</div>
+):
+1:    <div class="row">
+2:      <div class="col-md-2">
+3:        <h5> Hi <%= @current_user.username %> </h5>
+4:        <h4> Users </h4>
+5:        <div>
+6:          <%= turbo_stream_from "users" %>
+7:          <div id="users">
+8:            <%= render @users %>
+9:          </div>
+10:        </div>
+11:        <h4> Rooms </h4>
+12:        <%= render partial: "layouts/new_room_form" %>
+13:        <div>
+14:          <%= turbo_stream_from "rooms" %>
+15:          <div id="rooms">
+16:          	<%= render @rooms %>
+17:          </div>
+18:        </div>
+19:        </div>
+20:        <div class="col-md-10 bg-dark">
+21:        	The chat box stays here
+22:        	<div class="col-md-10 bg-dark text-light">
+23:    		  <% if @single_room %>
+24:    		    <h4 class="text-center"> <%= @single_room.name %> </h4>
+25:    		    <%= turbo_stream_from @single_room %>
+26:    			<div id="messages">
+27:    			</div>
+28:    			<%= render partial: 'layouts/new_message_form' >
+29:    		  	<% end %>
+30:    	    </div>
+31:        </div>
+32:    </div>
+  
+app/views/rooms/index.html.erb:29: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:34: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:29: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:34: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:29: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:34: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:29: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:34: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/rooms_controller.rb:23:in `show'
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 12:48:49 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 12:49:05 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.5ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 654)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.9ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3350)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 5049)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.5ms | Allocations: 7301)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 12:49:05 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 12:49:05 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:04:02 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.9ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.9ms | Allocations: 654)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 6655)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6727)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.0ms | Allocations: 9109)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    24: 		    <h4 class="text-center"> <%= @single_room.name %> </h4>
+    25: 		    <%= turbo_stream_from @single_room %>
+    26: 		    <div id="messages">
+    27: 		      <%= render @messages %>
+    28: 		    </div>
+    29: 		    <%= render partial: 'layouts/new_message_form' %>
+    30: 		  <% end %>
+  
+app/views/rooms/index.html.erb:27
+app/controllers/rooms_controller.rb:23:in `show'
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 13:04:02 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:05:20 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.5ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.3ms | Allocations: 654)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 4451)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4523)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 6739)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    23: 	    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    24: 	    <%= turbo_stream_from @single_room %>
+    25: 	    <div id="messages">
+    26: 	      <%= render @messages %>
+    27: 	    </div>
+    28: 	    <%= render partial: 'layouts/new_message_form' %>
+    29: 	    <% end %>
+  
+app/views/rooms/index.html.erb:26
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:05:21 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.9ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.7ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3406)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3478)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 4949)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    23: 	    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    24: 	    <%= turbo_stream_from @single_room %>
+    25: 	    <div id="messages">
+    26: 	      <%= render @messages %>
+    27: 	    </div>
+    28: 	    <%= render partial: 'layouts/new_message_form' %>
+    29: 	    <% end %>
+  
+app/views/rooms/index.html.erb:26
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:06:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.5ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 1173)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 343)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 6964)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 7047)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.1ms | Allocations: 67406)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    23: 	    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    24: 	    <%= turbo_stream_from @single_room %>
+    25: 	    <div id="messages">
+    26: 	      <%= render @messages %>
+    27: 	    </div>
+    28: 	    <%= render partial: 'layouts/new_message_form' %>
+    29: 	    <% end %>
+  
+app/views/rooms/index.html.erb:26
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:06:31 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.5ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3406)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3478)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 4953)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    23: 	    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    24: 	    <%= turbo_stream_from @single_room %>
+    25: 	    <div id="messages">
+    26: 	      <%= render @messages %>
+    27: 	    </div>
+    28: 	    <%= render partial: 'layouts/new_message_form' %>
+    29: 	    <% end %>
+  
+app/views/rooms/index.html.erb:26
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:06:58 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:7
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.6ms | Allocations: 655)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:15
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 4450)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 4523)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 6754)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    22:     <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    23:     <%= turbo_stream_from @single_room %>
+    24:     <div id="messages">
+    25:       <%= render @messages %>
+    26:     </div>
+    27:     <%= render partial: 'layouts/new_message_form' %>
+    28:     <% end %>
+  
+app/views/rooms/index.html.erb:25
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:10:12 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:7
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.7ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.9ms | Allocations: 654)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:15
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 338)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 4440)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4512)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms | Allocations: 6728)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    22:     <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    23:     <%= turbo_stream_from @single_room %>
+    24:     <div id="messages">
+    25:       <%= render @messages %>
+    26:     </div>
+    27:     <%= render partial: 'layouts/new_message_form' %>
+    28:     <% end %>
+  
+app/views/rooms/index.html.erb:25
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 13:10:13 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:7
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.3ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.7ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:15
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3406)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3478)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 4949)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    22:     <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+    23:     <%= turbo_stream_from @single_room %>
+    24:     <div id="messages">
+    25:       <%= render @messages %>
+    26:     </div>
+    27:     <%= render partial: 'layouts/new_message_form' %>
+    28:     <% end %>
+  
+app/views/rooms/index.html.erb:25
+app/controllers/rooms_controller.rb:23:in `show'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "hello"], ["created_at", "2024-03-01 07:41:34.058573"], ["updated_at", "2024-03-01 07:41:34.058573"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "hello"], ["created_at", "2024-03-01 07:44:06.848836"], ["updated_at", "2024-03-01 07:44:06.848836"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "hello"], ["created_at", "2024-03-01 07:44:49.689958"], ["updated_at", "2024-03-01 07:44:49.689958"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "hello"], ["created_at", "2024-03-01 08:33:52.279925"], ["updated_at", "2024-03-01 08:33:52.279925"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendered messages/_message.html.erb (Duration: 0.4ms | Allocations: 223)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdGFwcC9Sb29tLzE: "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hello\n</div></template></turbo-stream>"
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:04:21 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1278)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1351)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.8ms | Allocations: 3742)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="row">
+  <div class="col-md-2">
+    <h2> Hi <%= @current_user.username %> </h2>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+    <h4> Rooms </h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 bg-dark text-light">
+  <% if @single_room %>
+    <%# <h4  class="text-center"> <%= @single_room.name %></h4>
+    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+     <%= turbo_stream_from @single_room %>
+	<div id="messages">
+	</div>
+	<%= render partial: 'layouts/new_message_form' >
+    <% end %>
+</div>
+</div>
+):
+1:    <div class="row">
+2:      <div class="col-md-2">
+3:        <h2> Hi <%= @current_user.username %> </h2>
+4:        <div>
+5:          <%= turbo_stream_from "users" %>
+6:          <div id="users">
+7:            <%= render @users %>
+8:          </div>
+9:        </div>
+10:        <h4> Rooms </h4>
+11:        <%= render partial: "layouts/new_room_form" %>
+12:        <div>
+13:          <%= turbo_stream_from "rooms" %>
+14:          <div id="rooms">
+15:            <%= render @rooms %>
+16:          </div>
+17:        </div>
+18:      </div>
+19:      <div class="col-md-10 bg-dark text-light">
+20:      <% if @single_room %>
+21:        <%# <h4  class="text-center"> <%= @single_room.name %></h4>
+22:        <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+23:         <%= turbo_stream_from @single_room %>
+24:    	<div id="messages">
+25:    	</div>
+26:    	<%= render partial: 'layouts/new_message_form' >
+27:        <% end %>
+28:    </div>
+29:    </div>
+  
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:04:22 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1329)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2786)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="row">
+  <div class="col-md-2">
+    <h2> Hi <%= @current_user.username %> </h2>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+    <h4> Rooms </h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 bg-dark text-light">
+  <% if @single_room %>
+    <%# <h4  class="text-center"> <%= @single_room.name %></h4>
+    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+     <%= turbo_stream_from @single_room %>
+	<div id="messages">
+	</div>
+	<%= render partial: 'layouts/new_message_form' >
+    <% end %>
+</div>
+</div>
+):
+1:    <div class="row">
+2:      <div class="col-md-2">
+3:        <h2> Hi <%= @current_user.username %> </h2>
+4:        <div>
+5:          <%= turbo_stream_from "users" %>
+6:          <div id="users">
+7:            <%= render @users %>
+8:          </div>
+9:        </div>
+10:        <h4> Rooms </h4>
+11:        <%= render partial: "layouts/new_room_form" %>
+12:        <div>
+13:          <%= turbo_stream_from "rooms" %>
+14:          <div id="rooms">
+15:            <%= render @rooms %>
+16:          </div>
+17:        </div>
+18:      </div>
+19:      <div class="col-md-10 bg-dark text-light">
+20:      <% if @single_room %>
+21:        <%# <h4  class="text-center"> <%= @single_room.name %></h4>
+22:        <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+23:         <%= turbo_stream_from @single_room %>
+24:    	<div id="messages">
+25:    	</div>
+26:    	<%= render partial: 'layouts/new_message_form' >
+27:        <% end %>
+28:    </div>
+29:    </div>
+  
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/views/rooms/index.html.erb:27: syntax error, unexpected '<'
+app/views/rooms/index.html.erb:31: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/rooms_controller.rb:23:in `show'
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:05:30 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 1.1ms | Allocations: 247)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.3ms | Allocations: 654)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 338)
+  Rendered layouts/_new_message_form.html.erb (Duration: 10.1ms | Allocations: 3576)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 7199)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | Allocations: 40364)
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 0.6ms | Allocations: 42641)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 14:05:30 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:05:30 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:09:53 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 1173)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 343)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.9ms | Allocations: 1266)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 6556)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 39659)
+Completed 200 OK in 60ms (Views: 40.5ms | ActiveRecord: 1.0ms | Allocations: 100096)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 14:09:53 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:09:53 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/cable" for ::1 at 2024-03-01 14:10:18 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:10:18 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/rooms/1" for ::1 at 2024-03-01 14:10:35 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.8ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2923)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4326)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 5839)
+
+
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:10:39 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.3ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.8ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.6ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2922)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4325)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 5828)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"IloybGtPaTh2WTJoaGRHRndjQzlTYjI5dEx6SSI=--648139f5ca94d73e79017206abf4e199f3a39c3d86b0265e8e07017931827b80"}
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/users/2" for ::1 at 2024-03-01 14:10:41 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/3" for ::1 at 2024-03-01 14:10:43 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"IloybGtPaTh2WTJoaGRHRndjQzlTYjI5dEx6SSI=--648139f5ca94d73e79017206abf4e199f3a39c3d86b0265e8e07017931827b80"}
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:10:50 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.3ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2922)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4335)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms | Allocations: 5839)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:10:50 +0530
+Started GET "/cable" for ::1 at 2024-03-01 14:10:50 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:10:50 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/" for ::1 at 2024-03-01 14:10:57 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 3.7ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2327)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 3735)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.2ms | Allocations: 4796)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:10:57 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/cable" for ::1 at 2024-03-01 14:10:57 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:10:57 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/users/3" for ::1 at 2024-03-01 14:11:02 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 14:11:05 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.6ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2327)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3743)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 4801)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:11:05 +0530
+Started GET "/cable" for ::1 at 2024-03-01 14:11:05 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:11:05 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/users/2" for ::1 at 2024-03-01 14:11:27 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/3" for ::1 at 2024-03-01 14:11:29 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:11:30 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.9ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.9ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2922)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4333)
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 5841)
+
+
+Started GET "/" for ::1 at 2024-03-01 14:11:41 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2327)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3735)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 4783)
+
+
+Started GET "/signup" for ::1 at 2024-03-01 14:11:48 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:11:48 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/signin" for ::1 at 2024-03-01 14:11:52 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1663)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 3134)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 3938)
+
+
+Started POST "/signin" for ::1 at 2024-03-01 14:12:03 +0530
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"username"=>"Elon"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Elon"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1057)
+
+
+Started GET "/" for ::1 at 2024-03-01 14:12:03 +0530
+Processing by RoomsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 437)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2377)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3785)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 4884)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 14:12:03 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:12:03 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/3" for ::1 at 2024-03-01 14:12:05 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.7ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4321)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 5819)
+
+
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:12:06 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.8ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4321)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 5811)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:12:08 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.6ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.8ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4321)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.5ms | Allocations: 5817)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started POST "/rooms/2/messages" for ::1 at 2024-03-01 14:12:13 +0530
+Processing by MessagesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"content"=>"hello"}, "commit"=>"Create Message", "room_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mMessage Create (0.2ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["room_id", 2], ["content", "hello"], ["created_at", "2024-03-01 08:42:13.223208"], ["updated_at", "2024-03-01 08:42:13.223208"]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  Rendered messages/_message.html.erb (Duration: 0.3ms | Allocations: 204)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdGFwcC9Sb29tLzI: "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Elon </h6>\n  hello\n</div></template></turbo-stream>"
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 2.6ms | Allocations: 14357)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Elon </h6>\n  hello\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Elon </h6>\n  hello\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Started GET "/users/1" for ::1 at 2024-03-01 14:12:26 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/" for ::1 at 2024-03-01 14:12:34 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.7ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2327)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3745)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 4799)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:12:34 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/cable" for ::1 at 2024-03-01 14:12:34 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:12:34 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/signin" for ::1 at 2024-03-01 14:12:40 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 566)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1974)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2293)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:12:40 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/users/3" for ::1 at 2024-03-01 14:12:48 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/1" for ::1 at 2024-03-01 14:12:48 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started POST "/signin" for ::1 at 2024-03-01 14:12:49 +0530
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"username"=>"Drake"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Drake"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 832)
+
+
+Started GET "/" for ::1 at 2024-03-01 14:12:49 +0530
+Processing by RoomsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.3ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.7ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2330)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3748)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.3ms | Allocations: 4814)
+
+
+Started GET "/cable" for ::1 at 2024-03-01 14:12:49 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:12:49 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/3" for ::1 at 2024-03-01 14:12:52 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.1ms | Allocations: 437)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.5ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.9ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4321)
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.4ms | Allocations: 5810)
+
+
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:12:53 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.1ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.4ms | Allocations: 437)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.3ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2921)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4321)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 5813)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started POST "/rooms/2/messages" for ::1 at 2024-03-01 14:13:04 +0530
+Processing by MessagesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"content"=>"hello elon"}, "commit"=>"Create Message", "room_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 2], ["content", "hello elon"], ["created_at", "2024-03-01 08:43:04.801457"], ["updated_at", "2024-03-01 08:43:04.801457"]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  Rendered messages/_message.html.erb (Duration: 0.1ms | Allocations: 19)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdGFwcC9Sb29tLzI: "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hello elon\n</div></template></turbo-stream>"
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 15ms (ActiveRecord: 7.6ms | Allocations: 4376)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hello elon\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hello elon\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Started POST "/rooms/2/messages" for ::1 at 2024-03-01 14:13:16 +0530
+Processing by MessagesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"content"=>"hii drake"}, "commit"=>"Create Message", "room_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mMessage Create (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 2], ["content", "hii drake"], ["created_at", "2024-03-01 08:43:16.959836"], ["updated_at", "2024-03-01 08:43:16.959836"]]
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:4:in `create'
+  Rendered messages/_message.html.erb (Duration: 0.1ms | Allocations: 19)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdGFwcC9Sb29tLzI: "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hii drake\n</div></template></turbo-stream>"
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 2.8ms | Allocations: 4247)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hii drake\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div>\n    <h6 class=\"name\"> Drake </h6>\n  hii drake\n</div></template></turbo-stream>" (via streamed from Z2lkOi8vY2hhdGFwcC9Sb29tLzI)
+Started GET "/cable" for ::1 at 2024-03-01 14:27:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:27:47 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:27:49 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.4ms | Allocations: 342)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.0ms | Allocations: 1165)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.4ms | Allocations: 343)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/index.html.erb:25
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  Rendered collection of messages/_message.html.erb [3 times] (Duration: 2.6ms | Allocations: 3669)
+  Rendered layouts/_new_message_form.html.erb (Duration: 1.3ms | Allocations: 1252)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 23.2ms | Allocations: 13317)
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 57130)
+Completed 200 OK in 84ms (Views: 61.1ms | ActiveRecord: 1.1ms | Allocations: 120526)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:27:49 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/cable" for ::1 at 2024-03-01 14:27:49 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:27:49 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/cable" for ::1 at 2024-03-01 14:27:56 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:27:56 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/rooms/2" for ::1 at 2024-03-01 14:28:04 +0530
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 438)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  [1m[36mMessage Load (0.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 2]]
+  ↳ app/views/rooms/index.html.erb:25
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:1
+  Rendered collection of messages/_message.html.erb [3 times] (Duration: 2.2ms | Allocations: 1960)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.6ms | Allocations: 440)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 5616)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 7021)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 8561)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:04 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/cable" for ::1 at 2024-03-01 14:28:04 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:04 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Started GET "/users/3" for ::1 at 2024-03-01 14:28:13 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/2" for ::1 at 2024-03-01 14:28:13 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"IloybGtPaTh2WTJoaGRHRndjQzlTYjI5dEx6SSI=--648139f5ca94d73e79017206abf4e199f3a39c3d86b0265e8e07017931827b80"}
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdGFwcC9Sb29tLzI
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Started GET "/" for ::1 at 2024-03-01 14:28:22 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.5ms | Allocations: 438)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.3ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2328)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3746)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 4816)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:22 +0530
+Started GET "/cable" for ::1 at 2024-03-01 14:28:22 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:22 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started GET "/users/2" for ::1 at 2024-03-01 14:28:24 +0530
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--463823152357d486ca92c9ea845253f08b7378c004d2588ccdf9966b5a7725d2"}
+Turbo::StreamsChannel stopped streaming from rooms
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--4b18b9dfebf89aeb5b0b07e724dee75e67a31ce62b08272776a5699f3d374ece"}
+Turbo::StreamsChannel stopped streaming from users
+Started GET "/" for ::1 at 2024-03-01 14:28:26 +0530
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:6
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 0.2ms | Allocations: 112)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.4ms | Allocations: 437)
+  [1m[36mRoom Load (0.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:14
+  Rendered collection of rooms/_room.html.erb [5 times] (Duration: 0.2ms | Allocations: 221)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2327)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3737)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 4808)
+
+
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:26 +0530
+Started GET "/cable" for ::1 at 2024-03-01 14:28:26 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:26 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Finished "/cable" [WebSocket] for ::1 at 2024-03-01 14:28:40 +0530
+Turbo::StreamsChannel stopped streaming from users
+Turbo::StreamsChannel stopped streaming from rooms
